@@ -1,0 +1,17 @@
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientLib.css @ categories='blogpage.listofBlogs'}"/>
+</sly>
+
+
+<div class="blog-container" data-sly-use.body="com.blog.demo.core.models.ListOfBlogs" data-sly-list="${body.blogs}">
+    <div class="blog-card">
+        <img class="blog-thumbnail" src="${item.Img}">
+        <h2><a class="text-dark" href="${item.Link @context = 'uri' }">${item.Title}</a></h2>
+        <div class="mb-1 text-muted">${item.Date}</div>
+        <p>${item.SubHeading}</p>
+        <br>+
+        <br>
+        <a href="${item.Link @context = 'uri' }">Continue reading</a>
+
+    </div>
+</div>

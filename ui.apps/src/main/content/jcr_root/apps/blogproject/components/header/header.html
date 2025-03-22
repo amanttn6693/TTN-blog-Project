@@ -1,0 +1,24 @@
+<head data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientLib.css @ categories='componentHeader'}"/>
+    <sly data-sly-call="${clientLib.js @ categories='componentHeader'}"/>
+</head>
+<body>
+<header data-sly-use.links="com.blog.demo.core.models.HeaderModel">
+
+    <div class="site-header">
+        <div data-sly-test="${links.logoPath}">
+            <img class="logo" src="${links.logoPath @ context='uri'}" alt="Logo"/>
+        </div>
+        <div data-sly-test="${links.websiteName}">
+            <h2>${properties.websiteName}</h2>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <div class="nav" >
+        <ul class="nav-menu" data-sly-list="${links.navigation}">
+            <li><a href="${item.Link @ context='uri'}.html">${item.Title}</a></li>
+        </ul>
+    </div>
+</header>
+</body>

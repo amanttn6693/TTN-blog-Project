@@ -1,0 +1,16 @@
+<div class="container" data-sly-use.content="com.blog.demo.core.models.PublishedListofBlogs">
+    <div class="row" data-sly-list="${content.blogs}">
+        <div class="card flex-md-row mb-4 shadow-sm h-md-1200">
+            <div class="card-body d-flex flex-column align-items-start">
+                <h3 class="mb-0">
+                    <a class="text-dark" href="${item.Link @context = 'uri' }">${item.Title}</a>
+                </h3>
+                <div class="mb-1 text-muted">${item.Date}</div>
+                <p class="card-text mb-auto">${item.SubHeading}</p>
+                <a href="${item.Link @context = 'uri' }">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-lg-block" src="${item.Img}" width = "250px" height="200px" alt="Card image cap">
+        </div>
+    </div>
+
+</div>

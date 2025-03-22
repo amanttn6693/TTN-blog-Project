@@ -1,0 +1,7 @@
+#base=js
+Bootcamp.js
+Comment.js
+bootstrap.min.js
+docs.min.js
+holder.min.js
+popper.min.js

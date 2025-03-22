@@ -1,0 +1,17 @@
+<sly data-sly-use.links="com.blog.demo.core.models.ImportantLinks">
+
+    <h1>Maintitle : ${links.mainTitle}</h1>
+
+    <div data-sly-list.item="${links.linksWithTitle}">
+
+        <p> Title : <b>${item.Title} </b></p>
+
+        <a href=${item.Link} target=${item.LinkTarget}>Link</a>
+
+<!--        <p> Link : <b>${item.Link}</b> </p>-->
+
+<!--        <p> LinkTarget : <b>${item.LinkTarget}</b> </p>-->
+
+    </div>
+    
+</sly>

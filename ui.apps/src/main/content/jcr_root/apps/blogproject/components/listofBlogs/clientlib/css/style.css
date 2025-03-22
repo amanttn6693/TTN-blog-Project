@@ -1,0 +1,23 @@
+.blog-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #ddd;
+    max-width: 400px;
+}
+
+.blog-thumbnail {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #444;
+    height: 200px;
+    width: 400px;
+
+}

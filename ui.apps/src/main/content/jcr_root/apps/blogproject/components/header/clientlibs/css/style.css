@@ -1,0 +1,28 @@
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: grey solid 1px;
+
+}
+
+.logo {
+  height: 70px;
+}
+
+ul {
+  display: flex;
+  gap: 10px;
+  padding: 0px;
+  list-style: none;
+}
+
+.nav {
+  margin: 10px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: black;
+
+}

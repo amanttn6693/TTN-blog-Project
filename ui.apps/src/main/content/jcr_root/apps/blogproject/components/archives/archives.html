@@ -1,0 +1,10 @@
+<div class="p-3">
+    <h4 class="font-italic">Archives</h4>
+    <div data-sly-use.body="com.blog.demo.core.models.Archive">
+        <ol class="list-unstyled mb-0" data-sly-list="${body.archiveDates}">
+
+        <li><a href="${body.blogpath @ context='uri'}.html?month=${item @ context='uri'}">${item}</a>
+        </li>
+        </ol>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<head data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+
+
+    <sly data-sly-call="${clientLib.css @ categories='componentfirst'}"/>
+    <sly data-sly-call="${clientLib.js @ categories='componentfirst'}"/>
+
+
+</head>
+<body>
+
+
+    <div class="mycomponent-text" data-sly-test="${properties.text}">
+            ${properties.text}
+    </div>
+
+	${properties.color}
+</body>
