@@ -48,18 +48,12 @@ public class PublishedBlogsServiceImpl implements PublishedBlogsService {
     }
 
     private String getImagePath(Page childPage) {
-        Resource imageResource = childPage.getContentResource("root/responsivegrid/image");
+        Resource imageResource = childPage.getContentResource("cq:featuredimage");
 
         if (imageResource != null) {
             Resource fileResource = imageResource.getChild("file");
             if (fileResource != null) {
                 return fileResource.getPath();
-            }
-
-            ValueMap properties = imageResource.getValueMap();
-            String fileReference = properties.get("fileReference", String.class);
-            if (fileReference != null) {
-                return fileReference;
             }
         }
 
