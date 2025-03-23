@@ -6,16 +6,12 @@ import com.adobe.granite.security.user.UserPropertiesService;
 import com.blog.demo.core.models.Heading;
 import com.day.cq.wcm.api.Page;
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
-import org.apache.sling.models.annotations.injectorspecific.Self;
-import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
-import javax.jcr.Session;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -23,31 +19,28 @@ import java.util.Calendar;
 public class HeadingImpl implements Heading {
 
     @ScriptVariable
-    private Page currentPage; // Fetches Page Properties
+    private Page currentPage;
 
-    @SlingObject
-    private ResourceResolver resourceResolver;
+    @ScriptVariable
+    private ResourceResolver resolver;
 
     @ValueMapValue(name = "jcr:created")
-    private Calendar created; // Fetches the Creation Date
+    private Calendar created;
 
     @ValueMapValue(name ="jcr:createdBy")
     private String userId;
 
-    // Getter for Page Title
     @Override
     public String getTitle() {
         return currentPage.getTitle();
     }
 
-    // Getter for Created By
     @Override
     public String getAuthorName() {
-        String createdBy=getLoggedInUserName();
+        String createdBy=getUserName();
         return createdBy != null ? createdBy : "Unknown Author";
     }
 
-    // Getter for Created Date (Formatted)
     @Override
     public String getCreatedDate() {
         if (created != null) {
@@ -57,14 +50,13 @@ public class HeadingImpl implements Heading {
         return "No Date Found";
     }
 
-    private String getLoggedInUserName() {
+    private String getUserName() {
         try {
-                UserPropertiesManager upm = resourceResolver.adaptTo(UserPropertiesManager.class);
+                UserPropertiesManager upm = resolver.adaptTo(UserPropertiesManager.class);
                 if (upm != null) {
-                    UserProperties userProperties = upm.getUserProperties(userId, UserPropertiesService.PROFILE_PATH);
+                    UserProperties userProperties = upm.getUserProperties(userId, UserPropertiesService.PROFILE_PATH);;
                     if (userProperties != null) {
-                        // Fetch full name, if available; otherwise, fallback to userId
-                        String fullName = (String) userProperties.getProperty("profile/fullName");
+                        String fullName = userProperties.getProperty("profile/fullName");
                         return (fullName != null && !fullName.isEmpty()) ? fullName : userId;
                     }
                 }

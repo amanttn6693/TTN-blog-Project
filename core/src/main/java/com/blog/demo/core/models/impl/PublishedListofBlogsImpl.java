@@ -12,7 +12,7 @@ import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import java.util.*;
 
 @Model(
-        adaptables = {SlingHttpServletRequest.class},
+        adaptables = SlingHttpServletRequest.class,
         adapters = PublishedListofBlogs.class,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL
 )

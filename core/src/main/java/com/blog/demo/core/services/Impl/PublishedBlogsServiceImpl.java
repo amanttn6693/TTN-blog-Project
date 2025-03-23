@@ -23,16 +23,11 @@ public class PublishedBlogsServiceImpl implements PublishedBlogsService {
             Date createdDate = childPage.getProperties().get("jcr:created", Date.class);
             String formattedDate = sdf.format(createdDate);
 
-            if (monthFilter != null) {
-                String[] splitParam = monthFilter.split(" ");
-                if (splitParam.length == 2) {
-                    String month = splitParam[0];
-                    String year = splitParam[1];
-                    if (!formattedDate.contains(month) || !formattedDate.contains(year)) {
-                        continue;
-                    }
-                }
-            }
+              if (monthFilter!=null){
+                  if(!formattedDate.equals(monthFilter)){
+                      continue;
+                  }
+              }
 
             Map<String, String> blog = new HashMap<>();
             blog.put("Title", childPage.getTitle());

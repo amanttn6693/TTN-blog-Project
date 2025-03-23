@@ -2,23 +2,21 @@ package com.blog.demo.core.models.impl;
 
 
 import com.blog.demo.core.models.FooterModel;
-import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-@Model(adaptables = {SlingHttpServletRequest.class} , adapters = FooterModel.class)
+@Model(adaptables = Resource.class , adapters = FooterModel.class)
 public class FooterModelImpl implements FooterModel {
 
     @SlingObject
     Resource componentResource;
 
-    @ScriptVariable
+    @SlingObject
     private ResourceResolver resolver;
 
     @Override
