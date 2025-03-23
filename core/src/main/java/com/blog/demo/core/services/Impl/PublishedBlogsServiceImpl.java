@@ -55,6 +55,12 @@ public class PublishedBlogsServiceImpl implements PublishedBlogsService {
             if (fileResource != null) {
                 return fileResource.getPath();
             }
+
+            ValueMap properties = imageResource.getValueMap();
+            String fileReference = properties.get("fileReference", String.class);
+            if (fileReference != null) {
+                return fileReference;
+            }
         }
 
         return null;
