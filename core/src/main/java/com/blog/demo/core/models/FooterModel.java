@@ -5,4 +5,5 @@ import java.util.Map;
 
 public interface FooterModel {
     List<Map<String, String>> getNavItems();
+    public List<Integer> getYear();
 }
