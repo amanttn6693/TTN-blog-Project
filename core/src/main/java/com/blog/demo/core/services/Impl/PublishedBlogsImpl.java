@@ -8,7 +8,7 @@ import org.osgi.service.metatype.annotations.Designate;
 @Component(service = PublishedBlogs.class)
 @Designate(ocd = PublishedBlogsConfiguration.class)
 public class PublishedBlogsImpl implements PublishedBlogs {
-
+cd
     int blogs;
 
     @Activate

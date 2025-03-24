@@ -56,7 +56,7 @@ public class HeadingImpl implements Heading {
                 if (upm != null) {
                     UserProperties userProperties = upm.getUserProperties(userId, UserPropertiesService.PROFILE_PATH);;
                     if (userProperties != null) {
-                        String fullName = userProperties.getProperty("profile/fullName");
+                        String fullName = userProperties.getDisplayName();
                         return (fullName != null && !fullName.isEmpty()) ? fullName : userId;
                     }
                 }
