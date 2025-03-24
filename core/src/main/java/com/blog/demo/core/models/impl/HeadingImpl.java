@@ -13,7 +13,7 @@ import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.util.Date;
 
 @Model(adaptables = SlingHttpServletRequest.class, adapters = Heading.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class HeadingImpl implements Heading {
