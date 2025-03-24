@@ -25,7 +25,7 @@ public class HeadingImpl implements Heading {
     private ResourceResolver resolver;
 
     @ValueMapValue(name = "jcr:created")
-    private Calendar created;
+    private Date created;
 
     @ValueMapValue(name ="jcr:createdBy")
     private String userId;
